@@ -17,67 +17,38 @@ void solver(){
 
     cin>>n>>d>>k;
 
-    vector<int> arr(n+2,0);
+    // vector<int> arr(n+2,0);
 
-    for(int i = 0 ; i < k ; i ++){
-
-        ll l,r;
-
-        cin>>l>>r;
-
-        arr[l]++;
-        arr[r+1]--;
-
-    }
-
-    for(int i = 1; i <=n+1 ; i++ ){
-
-        arr[i] += arr[i-1];
-    }
-
-
-    ll mini = 1e16;
-    ll ans1= 1;
-
-    ll ans2 = 1;
-    ll maxi = -1;
-
-    ll currsum = 0;
-
-    for(int i = 1; i <=d; i ++){
-
-        currsum += arr[i];
-    }
-
-    maxi = currsum;
-    mini = currsum;
-
-    ll l = 2;
-    ll r= d;
-
-    while(r<=n){
-
-        currsum+= arr[r];
-        currsum -= arr[l];
-
-        r++;
-        l++;
-
-        if(currsum > maxi){
-
-            maxi = currsum;
-            ans2 = l;
+    vector<ll> ct(n + 2, 0);
+        
+        // Read the jobs and update the ct array for range updates
+        for (int i = 0; i < k; i++) {
+            ll L, R;
+            cin >> L >> R;
+            ct[max(1LL, L - d + 1)] += 1;
+            ct[R + 1] -= 1;
         }
+        
+        // Variables to track the current sum, min and max overlaps
+        ll cur = 0;
+        ll mn = 1e16, mni = 0;
+        ll mx = -1, mxi = 0;
 
-        if(currsum < mini){
-
-            mini = currsum;
-            ans1 = l;
+        // Process the array using a sliding window approach
+        for (int i = 1; i <= n - d + 1; i++) {
+            cur += ct[i];
+            if (cur < mn) {
+                mn = cur;
+                mni = i;
+            }
+            if (cur > mx) {
+                mx = cur;
+                mxi = i;
+            }
         }
-
-    }
-
-    cout<<ans1<<" "<<ans2<<"\n";
+        
+        // Output the results
+        cout << mxi << " " << mni << "\n";
     
 
 
