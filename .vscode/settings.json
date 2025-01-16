@@ -3,6 +3,10 @@
         "iostream": "cpp",
         "utility": "cpp",
         "unordered_map": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "set": "cpp",
+        "xtree": "cpp",
+        "ostream": "cpp",
+        "string": "cpp"
     }
 }
