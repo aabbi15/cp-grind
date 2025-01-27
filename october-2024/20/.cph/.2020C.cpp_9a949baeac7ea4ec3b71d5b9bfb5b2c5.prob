@@ -1,1 +1,0 @@
-{"name":"Local: 2020C","url":"c:\\Users\\abhis\\OneDrive\\Desktop\\CP\\october-2024\\19\\20\\2020C.cpp","tests":[{"id":1729406302491,"input":"3\n2 2 2\n4 2 6\n10 2 14\n","output":"0\n-1\n12"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\abhis\\OneDrive\\Desktop\\CP\\october-2024\\19\\20\\2020C.cpp","group":"local","local":true}
